@@ -1,1 +1,4 @@
-<h1><%= @idea %></h1>
+<h1><%= @idea.desc %></h1>
+<a href="/ideas/<%= @idea.id %>/edit">Edit</a> |
+<a href="/ideas/<%= @idea.id %>/destroy">Destroy</a> |
+<a href="/ideas">Back to index</a>

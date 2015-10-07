@@ -1,0 +1,17 @@
+<h1>Listing ideas</h1>
+<a href="/ideas/new">Add a new idea</a>
+<table>
+  <tr>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @ideas.each do |idea|  %>
+    <tr>
+      <td><%= idea.desc %></td>
+      <td><a href="/ideas/<%= idea.id %>">Show</a></td>
+      <td><a href="/ideas/<%= idea.id %>/edit">Edit</a></td>
+      <td><a href="/ideas/<%= idea.id %>/destroy">Destroy</a></td>
+    </tr>
+  <% end %>
+</table>
