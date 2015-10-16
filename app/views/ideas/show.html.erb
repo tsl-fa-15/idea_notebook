@@ -1,4 +1,4 @@
 <h1><%= @idea.desc %></h1>
-<%= link_to 'Edit', "/ideas/#{@idea.id}/edit"  %> |
-<%= link_to 'Destroy', "/ideas/#{@idea.id}/destroy"  %>
-<a href="/ideas">Back to index</a>
+<%= link_to 'Edit', edit_idea_path(@idea.id)  %> |
+<%= link_to 'Destroy', idea_path(@idea.id), :method => :delete  %> |
+<%= link_to 'Back to index', ideas_path  %>

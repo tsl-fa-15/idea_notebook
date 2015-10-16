@@ -1,5 +1,5 @@
 <h1>Listing ideas</h1>
-<a href="/ideas/new">Add a new idea</a>
+<%= link_to 'Add a new idea', new_idea_path  %>
 <table>
   <tr>
     <th>Description</th>
@@ -9,9 +9,9 @@
   <% @ideas.each do |idea|  %>
     <tr>
       <td><%= idea.desc %></td>
-      <td><%= link_to 'Show', "/ideas/#{idea.id}"  %></td>
-      <td><%= link_to 'Edit', "/ideas/#{idea.id}/edit"  %></td>
-      <td><%= link_to 'Destroy', "/ideas/#{idea.id}/destroy"  %></td>
+      <td><%= link_to 'Show', idea_path(idea.id)  %></td>
+      <td><%= link_to 'Edit', edit_idea_path(idea.id) %></td>
+      <td><%= link_to 'Destroy', idea_path(idea.id), :method => :delete  %></td>
     </tr>
   <% end %>
 </table>

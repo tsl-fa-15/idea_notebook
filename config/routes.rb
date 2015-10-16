@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   # CREATE
-  get("/ideas/new", {:controller => 'ideas', :action => 'new'})
-  get("/create_idea", {:controller => 'ideas', :action => 'create'})
+  get("/ideas/new", {:controller => 'ideas', :action => 'new', :as => 'new_idea'})
+  post("/ideas", {:controller => 'ideas', :action => 'create', :as => 'ideas' })
 
   # READ
-  get("/ideas/:id", {:controller => 'ideas', :action => 'show'})
+  get("/ideas/:id", {:controller => 'ideas', :action => 'show', :as => 'idea'})
   get("/ideas", {:controller => 'ideas', :action => 'index'})
 
   # UPDATE
-  get("/ideas/:id/edit", {:controller => 'ideas', :action => 'edit'})
-  get("/update_idea/:id", {:controller => 'ideas', :action => 'update'})
+  get("/ideas/:id/edit", {:controller => 'ideas', :action => 'edit', :as => 'edit_idea'})
+  patch("/ideas/:id", {:controller => 'ideas', :action => 'update'})
 
   # DESTROY
-  get("/ideas/:id/destroy", {:controller => 'ideas', :action => 'destroy'})
+  delete("/ideas/:id", {:controller => 'ideas', :action => 'destroy'})
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

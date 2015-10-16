@@ -1,9 +1,10 @@
 <h1>Edit idea #<%= @idea.id %></h1>
-<form action="/update_idea/<%= @idea.id %>">
+<%= form_tag idea_path(@idea.id), :method => :patch do %>
   <label for="desc">Description:</label>
   <input type="text" id="desc" name="desc" value="<%= @idea.desc %>">
   <input type="submit">
-</form>
+<% end %>
 
-<a href="/ideas/<%= @idea.id %>/destroy">Destroy</a> |
-<a href="/ideas">Back to index</a>
+
+<%= link_to 'Destroy', idea_path(@idea.id), :method => :delete  %> |
+<%= link_to 'Back to index', ideas_path  %>

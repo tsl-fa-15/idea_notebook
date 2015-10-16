@@ -11,7 +11,7 @@ class IdeasController < ApplicationController
     idea.desc = params[:desc]
     idea.save
 
-    redirect_to "/ideas/#{idea.id}"
+    redirect_to idea_url(idea.id)
   end
 
   def edit
@@ -23,14 +23,14 @@ class IdeasController < ApplicationController
     idea.desc = params[:desc]
     idea.save
 
-    redirect_to "/ideas/#{idea.id}"
+    redirect_to idea_url(idea.id)
   end
 
   def destroy
     idea = Idea.find(params[:id])
     idea.destroy
 
-    redirect_to "/ideas"
+    redirect_to ideas_url
   end
 
   def index

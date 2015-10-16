@@ -1,6 +1,6 @@
 <h1>Add a new idea</h1>
-<form action="/create_idea">
+<%= form_tag ideas_path do %>
   <label for="desc">Description:</label>
   <input type="text" id="desc" name="desc">
   <input type="submit">
-</form>
+<% end %>
