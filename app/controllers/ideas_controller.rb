@@ -12,6 +12,7 @@ class IdeasController < ApplicationController
     idea.save
 
     redirect_to idea_url(idea.id)
+
   end
 
   def edit
