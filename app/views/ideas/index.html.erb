@@ -9,9 +9,9 @@
   <% @ideas.each do |idea|  %>
     <tr>
       <td><%= idea.desc %></td>
-      <td><a href="/ideas/<%= idea.id %>">Show</a></td>
-      <td><a href="/ideas/<%= idea.id %>/edit">Edit</a></td>
-      <td><a href="/ideas/<%= idea.id %>/destroy">Destroy</a></td>
+      <td><%= link_to 'Show', "/ideas/#{idea.id}"  %></td>
+      <td><%= link_to 'Edit', "/ideas/#{idea.id}/edit"  %></td>
+      <td><%= link_to 'Destroy', "/ideas/#{idea.id}/destroy"  %></td>
     </tr>
   <% end %>
 </table>
