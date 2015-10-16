@@ -1,4 +1,11 @@
 <h1>Edit idea #<%= @idea.id %></h1>
+<% if @idea.errors %>
+  <ul>
+    <% @idea.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_tag idea_path(@idea.id), :method => :patch do %>
   <label for="desc">Description:</label>
   <input type="text" id="desc" name="desc" value="<%= @idea.desc %>">

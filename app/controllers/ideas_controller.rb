@@ -4,14 +4,17 @@ class IdeasController < ApplicationController
   end
 
   def new
+    @idea = Idea.new
   end
 
   def create
-    idea = Idea.new
-    idea.desc = params[:desc]
-    idea.save
-
-    redirect_to idea_url(idea.id)
+    @idea = Idea.new
+    @idea.desc = params[:desc]
+    if @idea.save
+      redirect_to idea_url(@idea.id)
+    else
+      render 'new'
+    end
 
   end
 
@@ -20,11 +23,14 @@ class IdeasController < ApplicationController
   end
 
   def update
-    idea = Idea.find(params[:id])
-    idea.desc = params[:desc]
-    idea.save
+    @idea = Idea.find(params[:id])
+    @idea.desc = params[:desc]
+    if @idea.save
+      redirect_to idea_url(@idea.id)
+    else
+      render 'edit'
+    end
 
-    redirect_to idea_url(idea.id)
   end
 
   def destroy
