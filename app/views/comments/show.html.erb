@@ -14,7 +14,7 @@
               <dd><%= @comment.contents %></dd>
 
               <dt>Idea</dt>
-              <dd><%= @idea.desc %></dd>
+              <dd><%= link_to @idea.desc, idea_path(@idea.id) %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">

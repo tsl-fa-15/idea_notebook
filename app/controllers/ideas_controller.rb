@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
+    @comments = Comment.where({idea_id: @idea.id})
   end
 
   def new
