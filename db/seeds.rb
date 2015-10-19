@@ -27,3 +27,31 @@ end
 
 puts "There are #{Idea.count} ideas in the database"
 
+
+Comment.destroy_all
+
+num_ideas = Idea.count
+40.times do
+  random_offset = rand(num_ideas)
+  random_idea = Idea.offset(random_offset).first
+  c = Comment.new
+  c.contents = Faker::Company.bs
+  c.idea_id = random_idea.id
+  c.save
+end
+
+puts "There are #{Comment.count} comments in the database"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

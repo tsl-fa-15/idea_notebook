@@ -29,8 +29,9 @@
           <dt>Contents</dt>
           <dd><%= comment.contents %></dd>
 
-          <dt>Idea id</dt>
-          <dd><%= comment.idea_id %></dd>
+          <dt>Idea</dt>
+          <% idea = Idea.find(comment.idea_id) %>
+          <dd><%= idea.desc %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
