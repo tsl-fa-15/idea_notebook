@@ -35,10 +35,14 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    idea = Idea.find(params[:id])
-    idea.destroy
+    @idea = Idea.find(params[:id])
+    @idea.destroy
 
-    redirect_to ideas_url
+    respond_to do |format|
+      format.html { redirect_to ideas_url }
+      format.js { render 'destroy'}
+    end
+
   end
 
   def index
