@@ -1,1 +1,1 @@
-$('ul').append('test');
+$('ul#comment-list').prepend('<%= j(render('comment_list_item', comment: @comment)) %>');

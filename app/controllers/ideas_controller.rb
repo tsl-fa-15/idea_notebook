@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.where({idea_id: @idea.id})
+    @comments = Comment.where({idea_id: @idea.id}).order(created_at: :desc)
   end
 
   def new

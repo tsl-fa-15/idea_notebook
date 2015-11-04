@@ -51,7 +51,7 @@
 
 <!-- End responsive panel example -->
 
-<ul>
+<ul id="comment-list">
   <% @comments.each do |comment| %>
     <li><%= link_to comment.contents, comment_path(comment.id) %></li>
   <% end %>
