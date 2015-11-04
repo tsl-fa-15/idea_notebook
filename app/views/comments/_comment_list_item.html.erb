@@ -1,1 +1,4 @@
-<li><%= link_to comment.contents, comment_path(comment.id) %></li>
+<li id="comment_<%= comment.id %>">
+  <%= link_to comment.contents, comment_path(comment.id) %> |
+  <%= link_to 'edit', edit_comment_path(comment.id), remote: true %>
+</li>

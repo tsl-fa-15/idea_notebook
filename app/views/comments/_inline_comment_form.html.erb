@@ -1,0 +1,18 @@
+
+<%= form_tag comment_url(@comment.id), :method => "patch", :remote => true, :class => "form-horizontal", :id => "comment_#{@comment.id}_form" do %>
+  <!-- Label and input for contents -->
+  <div class="form-group">
+    <label for="contents" class="sr-only">
+      Contents
+    </label>
+    <div class="col-sm-6">
+      <input type="text" id="contents" name="contents" placeholder="Contents" class="form-control" value="<%= @comment.contents %>">
+    </div>
+    <div class="col=sm-offset-6"></div>
+  </div>
+  </div>
+  <input type="hidden" name="idea_id" value="<%= @comment.idea_id %>">
+
+<% end %>
+
+<!-- End responsive panel example -->

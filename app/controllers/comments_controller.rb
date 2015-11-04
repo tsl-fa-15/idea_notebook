@@ -30,6 +30,11 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+
+    respond_to do |format|
+      format.html { render 'edit' }
+      format.js { render 'edit' }
+    end
   end
 
   def update
@@ -39,7 +44,11 @@ class CommentsController < ApplicationController
     @comment.idea_id = params[:idea_id]
 
     if @comment.save
-      redirect_to comment_url(@comment.id), :notice => "Comment updated successfully."
+      respond_to do |format|
+        format.html { redirect_to comment_url(@comment.id), :notice => "Comment updated successfully." }
+        format.js { render 'update' }
+      end
+
     else
       render 'edit'
     end

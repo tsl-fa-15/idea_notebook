@@ -53,6 +53,6 @@
 
 <ul id="comment-list">
   <% @comments.each do |comment| %>
-    <li><%= link_to comment.contents, comment_path(comment.id) %></li>
+    <%= render 'comments/comment_list_item', comment: comment %>
   <% end %>
 </ul>
