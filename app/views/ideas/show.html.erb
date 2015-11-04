@@ -24,7 +24,7 @@
         <h3 class="panel-title">Add Comment</h3>
       </div>
       <div class="panel-body">
-        <%= form_tag comments_url, :method => "post", :class => "form-horizontal" do %>
+        <%= form_tag comments_url, :method => "post", :remote => true, :class => "form-horizontal" do %>
           <!-- Label and input for contents -->
           <div class="form-group">
             <label for="contents" class="col-sm-2 control-label">

@@ -19,7 +19,10 @@ class CommentsController < ApplicationController
     @comment.idea_id = params[:idea_id]
 
     if @comment.save
-      redirect_to comments_url, :notice => "Comment created successfully."
+      respond_to do |format|
+        format.html { redirect_to comments_url, :notice => "Comment created successfully." }
+        format.js { render 'create'}
+      end
     else
       render 'new'
     end
