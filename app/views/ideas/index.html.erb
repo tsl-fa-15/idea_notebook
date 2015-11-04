@@ -1,5 +1,18 @@
 <h1>Listing ideas</h1>
-<%= link_to 'Add a new idea', new_idea_path  %>
+<h2>Add a new idea</h2>
+<% if @idea.errors %>
+  <ul>
+    <% @idea.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_tag ideas_path, remote: true do %>
+  <label for="desc">Description:</label>
+  <input type="text" id="desc" name="desc" value="<%= @idea.desc %>">
+  <input type="submit">
+<% end %>
+
 <table>
   <tr>
     <th>Description</th>

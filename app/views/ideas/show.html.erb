@@ -4,6 +4,53 @@
 <%= link_to 'Back to index', ideas_path  %>
 
 <h2>Comments</h2>
+<!-- Validation failure messages -->
+
+<% if @comment.errors.any? %>
+  <% @comment.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Comment</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_tag comments_url, :method => "post", :class => "form-horizontal" do %>
+          <!-- Label and input for contents -->
+          <div class="form-group">
+            <label for="contents" class="col-sm-2 control-label">
+              Contents
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="contents" name="contents" placeholder="Contents" class="form-control" value="<%= @comment.contents %>">
+            </div>
+          </div>
+          <input type="hidden" name="idea_id" value="<%= @idea.id %>">
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Create Comment" class="btn btn-success">
+              or
+              <a href="/comments">Cancel</a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
+
 <ul>
   <% @comments.each do |comment| %>
     <li><%= link_to comment.contents, comment_path(comment.id) %></li>

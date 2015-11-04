@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def index
     @comments = Comment.all
+    @comment = Comment.new
   end
 
   def show
@@ -45,7 +46,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to comments_url, :notice => "Comment deleted." }
+      format.js { render 'destroy'}
+    end
 
-    redirect_to comments_url, :notice => "Comment deleted."
   end
 end

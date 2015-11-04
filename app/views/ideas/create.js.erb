@@ -1,0 +1,5 @@
+$('table').append("<%= j(render('idea', idea: @idea)) %>");
+$('#idea_<%= @idea.id %>').hide();
+$('#idea_<%= @idea.id %>').fadeIn();
+$('input#desc').val("");
+

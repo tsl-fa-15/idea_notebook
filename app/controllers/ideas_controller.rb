@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
+    @comment = Comment.new
     @comments = Comment.where({idea_id: @idea.id})
   end
 
@@ -12,11 +13,13 @@ class IdeasController < ApplicationController
     @idea = Idea.new
     @idea.desc = params[:desc]
     if @idea.save
-      redirect_to idea_url(@idea.id)
+      respond_to do |format|
+        format.html {redirect_to idea_url(@idea.id)}
+        format.js { render 'create'}
+      end
     else
       render 'new'
     end
-
   end
 
   def edit
@@ -47,6 +50,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    @idea = Idea.new
   end
 
 end
