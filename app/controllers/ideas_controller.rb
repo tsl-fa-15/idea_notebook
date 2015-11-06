@@ -24,13 +24,21 @@ class IdeasController < ApplicationController
 
   def edit
     @idea = Idea.find(params[:id])
+
+    respond_to do |format|
+      format.html { render 'edit' }
+      format.js { render 'edit' }
+    end
   end
 
   def update
     @idea = Idea.find(params[:id])
     @idea.desc = params[:desc]
     if @idea.save
-      redirect_to idea_url(@idea.id)
+      respond_to do |format|
+        format.html {redirect_to idea_url(@idea.id)}
+        format.js {render 'update'}
+      end
     else
       render 'edit'
     end

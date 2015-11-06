@@ -1,0 +1,9 @@
+<tr id="idea_<%= @idea.id %>_form_tr">
+  <td>
+    <%= form_tag idea_path(@idea.id), method: :patch, remote: true do %>
+      <input type="text" id="desc" name="desc" value="<%= @idea.desc %>">
+    <% end %>
+  </td>
+</tr>
+
+

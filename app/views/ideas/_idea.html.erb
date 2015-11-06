@@ -1,6 +1,6 @@
 <tr id="idea_<%= idea.id %>">
   <td><%= idea.desc %></td>
   <td><%= link_to 'Show', idea_path(idea.id)  %></td>
-  <td><%= link_to 'Edit', edit_idea_path(idea.id) %></td>
+  <td><%= link_to 'Edit', edit_idea_path(idea.id), remote: true %></td>
   <td><%= link_to 'Destroy', idea_path(idea.id), :method => :delete, :remote => true  %></td>
 </tr>

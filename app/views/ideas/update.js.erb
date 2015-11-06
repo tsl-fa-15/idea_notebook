@@ -1,0 +1,3 @@
+$('#idea_<%= @idea.id %>_form_tr').replaceWith('<%= j(render('idea', idea: @idea)) %>');
+$('#idea_<%= @idea.id %>').hide();
+$('#idea_<%= @idea.id %>').fadeIn();
